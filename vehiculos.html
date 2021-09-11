@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!---FONTAWESOME-->
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+
+    <!-- MIS ESTILOS CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!--cdn de jQuery-->
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Proyecto final</title>
+  </head>
+  <body>
+    <!--CABECERA-->
+    <header class="bg-primary">
+      <p class="text-center text-light mb-0">
+        10% de descuento hasta el 28/08/22
+      </p>
+    </header>
+
+    <!--MENU DE NAVEGACION-->
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-transparente p-3"
+      id="menu"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="/"
+          ><img
+            class="logo ms-3 mb-2"
+            src="img/coche.svg"
+            alt=""
+            width="50"
+            height="40"
+        /></a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menunavegacion"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="menunavegacion" class="collapse navbar-collapse text-light">
+          <ul class="navbar-nav ms-3">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="vehiculos.html">Vehiculos</a>
+            </li>
+          </ul>
+        </div>
+        <form class="d-flex ms-3" id="formulario-busqueda">
+          <input
+            class="form-control me-2"
+            id="input-buscador"
+            type="search"
+            autocomplete="off"
+            placeholder="busca tu auto"
+            aria-label="buscar"
+          />
+          <button
+            class="btn btn-primary btn-primary-outline"
+            id="boton-buscador"
+            type="button"
+          >
+            Buscar
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <!--CONTENEDOR PRINCIPAL DE CARD DE AUTOS-->
+    <div class="container contenedor__autos" id="mostrar_nombre">
+      <div class="modal" tabindex="-1" id="modal-preventas">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tabla de preventas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-dark table-striped" id="tabla-preventas">
+  <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Pais</th>
+      <th scope="col">Auto</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+  </tbody>
+</table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="container d-flex justify-content-center">
+        <button type="button" class="btn btn-light justify-content-center mb-4" data-bs-toggle="modal" data-bs-target="#modal-preventas">Ver preventas</button>
+      </div>
+      
+      <div
+        class="row fila d-flex justify-content-evenly mb-4"
+        id="fila_de_card"
+      >
+        <!--CARD DE CADA UTO A VENDER-->
+      </div>
+    </div>
+
+    <!--SECCION DONDE VA EL MODAL DE COMPRA-->
+    <section class="modal__comprar" id="modal-comprar">
+       <div
+              class="modal"
+              id="miModalCompra"
+              tabindex="-1"
+              aria-labelledby="miModalCompra"
+              aria-hidden="true"
+            >
+              <div
+                class="
+                  modal-dialog modal-dialog-centered modal-dialog-scrollabe
+                "
+              >
+                <div class="modal-content" id="contenedor-modal-preventaa">
+                  
+                  <div class="modal-header">
+                    <h5 class="modal-title">
+                      Necesitamos los siguientes datos:
+                    </h5>
+          
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container">
+                      <!--FORMULARIO DENTRO DEL MODAL DE COMPRA-->
+                      <div class="mensaje-exitoso" >
+                             <span>Su preventa se creo correctamente!!</span>
+                      </div>
+                    
+                      <form action="" class="p-4" id="formulario-compra">
+                        <div class="row">
+                          <div class="mb-3 col-6">
+                            <label
+                              for="input-nombre"
+                              class="form-label"
+                              >Nombre</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control input_modal"
+                              id="input-nombre"
+                              name="nombre"
+                              autocomplete="off"
+                              placeholder="Joe"
+                              required
+                            />
+                          </div>
+                          <div class="mb-3 col-6">
+                            <label
+                              for="input-apellido"
+                              class="form-label"
+                              >Apellido</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control input_modal"
+                              id="input-apellido"
+                              name="apellido"
+                              autocomplete="off"
+                              placeholder="Romero"
+                              required
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <label
+                              for="input-dni"
+                              class="form-label"
+                              >Numero de pasaporte o DNI</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control input_modal"
+                              id="input-dni"
+                              name="dni"
+                              autocomplete="off"
+                              placeholder="2541658715-5"
+                              required
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <label
+                              for="input-autos"
+                              class="form-label"
+                              >Seleciona tu auto</label
+                            >
+                           <select
+                                class="form-select"
+                                size="5"
+                                aria-label="Default select example"
+                                id="input-autos"
+                                name="autos"
+                                required
+                              >
+                               
+                                <option value="BMW 128ti">BMW 128ti</option>
+                                <option value="BMW 230i Convertible">BMW 230i Convertible</option>
+                                <option value="BMW 220dA Coupe 2P">BMW 220dA Coupe 2P</option>
+                                <option value="BMW X5 xDrive 40iA 5P">BMW X5 xDrive 40iA 5P</option>
+                                <option value="Tesla Model S">Tesla Model S</option>
+                                <option value="Tesla Model 3">Tesla Model 3</option>
+                                <option value="Tesla Model X">Tesla Model X</option>
+                                <option value="Tesla Model Y">Tesla Model Y</option>
+                                <option value="Mercedes benz gla 180">Mercedes benz gla 180</option>
+                                <option value="Mercedes benz clase e">Mercedes benz clase e</option>
+                                <option value="Mercedes benz clase gla">Mercedes benz clase gla</option>
+                                <option value="Mercedes benz clase x">Mercedes benz clase x</option>
+                              </select>
+                          </div>
+                          <div class="row">
+                            <div class="mb-3 col-6">
+                              <label
+                                for="input-paises"
+                                class="form-label"
+                                >Tu pais</label
+                              >
+                              <select
+                                class="form-select"
+                                aria-label="Default select example"
+                                id="input-paises"
+                                name="pais"
+                                required
+                              >
+                               
+                                <option value="Chile">Chile</option>
+                                <option value="Argentina">Argentina</option>
+                                <option value="Colombia">Colombia</option>
+                                <option value="Brasil">Brasil</option>
+                                <option value="Estados Unidos">Estados Unidos</option>
+                                <option value="Uruguay">Uruguay</option>
+                              </select>
+                            </div>
+                            <div class="mb-3 col-6">
+                              <label
+                                for="input-zip"
+                                class="form-label"
+                                >Codigo Postal</label
+                              >
+                              <input
+                                type="text"
+                                class="form-control input_modal"
+                                id="input-zip"
+                                name="zip"
+                                autocomplete="off"
+                                placeholder="3654"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div class="mb-3">
+                            <label
+                              for="input-direccion"
+                              class="form-label"
+                              >Direccion exacta de envio</label
+                            >
+                            <input
+                              type="text"
+                              class="form-control input_modal"
+                              id="input-direccion"
+                              name="direccion"
+                              autocomplete="off"
+                              placeholder="Av. El condor, Edificio 842, Dpto 304"
+                              required
+                            />
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Cancelar
+                    </button>
+                    <button
+                      type="submit"
+                      class="btn btn-success"
+                      id="boton-comprar-form"
+                    >
+                      Enviar
+                    </button>
+                  </div>  
+                      </form>
+                    </div>
+                  </div>
+                  
+    </section>
+
+    <div class="container">
+      <footer
+        class="
+          footer
+          d-flex
+          justify-content-center
+          flex-column
+          mt-2
+          mb-4
+          text-center
+        "
+      >
+        <span class="footer__descripcion"
+          >Desarrollador | Hebert Barrios &copy;</span
+        >
+        <a href="#"><i class="fab fa-github"></i></a>
+      </footer>
+    </div>
+
+    <script src="js/miarchivo.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
