@@ -64,9 +64,13 @@ const filtrado = () => {
 
   if (resultado_busqueda.innerHTML === "") {
     resultado_busqueda.innerHTML = `
-          <div class="d-flex justify-content-center text-primary">
-             <h5>No vendemos ese vehiculo y/o marca :(</h5>
-          </div>
+    <div class="card card-error" style="width: 18rem;">
+      <div class="card-cuerpo-error">
+        <h4 class="card-title">Lo sentimos mucho!!</h4>
+        <p class="" id="texto-error">La marca o auto que buscas por el momento no esta en nuestro stock de ventas, en un futuro podriamos tenerlos.</p>
+        <a href="vehiculos.html" class="card-link">Volver a autos</a>
+      </div>
+    </div>
     `;
   }
 };

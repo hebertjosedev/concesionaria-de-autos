@@ -125,3 +125,21 @@ body {
   border: 1px solid green;
   border-radius: 15px;
 }
+
+/*Estilos para la card de autos no disponibles*/
+
+.card-error {
+  padding: 15px;
+  color: white;
+}
+
+.card-error a {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: #11c0d2;
+}
+
+.card-error a:hover {
+  color: white;
+}
