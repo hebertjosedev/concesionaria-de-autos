@@ -1,5 +1,6 @@
 // Proyecto de una concesionaria de autos
 
+//Declaracion de variables de algunos elementos del dom a traves de su ID
 const formularioBusqueda = document.getElementById("formulario-busqueda");
 const input = document.getElementById("input-buscador");
 const boton_buscador = document.getElementById("boton-buscador");
@@ -13,6 +14,7 @@ const peticionDeAutos = () => {
     .then((res) => res.json())
     .then((data) => {
       autos = data;
+      //Reutilizando la funcion del filtrado de autos pasandole como parametro la data entrante
       filtradoDeAutos(autos);
     });
 };
@@ -24,9 +26,11 @@ peticionDeAutos();
 const filtradoDeAutos = () => {
   resultado_busqueda.innerHTML = "";
   const texto = input.value.toLowerCase();
+  //Recorrer el array de autos
   for (let auto of autos) {
     let nombre = auto.nombre.toLowerCase();
     if (nombre.indexOf(texto) !== -1) {
+      //Creacion de elemento al dom de manera dinamica
       const div = document.createElement("div");
       div.classList.add("card", "mb-4", "p-3");
       div.style = "width: 18rem";
