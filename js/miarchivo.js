@@ -1,5 +1,6 @@
 // Proyecto de una concesionaria de autos
 
+const formularioBusqueda = document.getElementById("formulario-busqueda");
 const input = document.getElementById("input-buscador");
 const boton_buscador = document.getElementById("boton-buscador");
 const resultado_busqueda = document.getElementById("fila_de_card");
