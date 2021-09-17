@@ -12,7 +12,7 @@ const peticionDeAutos = () => {
     .then((res) => res.json())
     .then((data) => {
       autos = data;
-      filtrado(autos);
+      filtradoDeAutos(autos);
     });
 };
 
@@ -20,7 +20,7 @@ const peticionDeAutos = () => {
 peticionDeAutos();
 
 // funcion expresada para filtrar las busquedas del usuario
-const filtrado = () => {
+const filtradoDeAutos = () => {
   resultado_busqueda.innerHTML = "";
   const texto = input.value.toLowerCase();
   for (let auto of autos) {
@@ -75,10 +75,16 @@ const filtrado = () => {
   }
 };
 
+//Capturar la tecla enter y prevenir que se recargue el formulario donde esta el input de busqueda, y a su vez mostrar los autos.
+formularioBusqueda.addEventListener("keypress", (e) => {
+  if (e.keyCode == 13) {
+    e.preventDefault();
+    filtradoDeAutos();
+  }
+});
+
 // Capturando el evento click en el boton de busqueda para filtrar
-boton_buscador.addEventListener("click", filtrado);
-// Evento que captura cada letra ingresada al input y la va filtrando en el stock
-input.addEventListener("input", filtrado);
+boton_buscador.addEventListener("click", filtradoDeAutos);
 
 /*codigo para obtener los datos del formulario de preventa y enviarlo a la tabla de preventas*/
 
